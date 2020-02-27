@@ -1,0 +1,88 @@
+{
+        "version": "3.3",
+        "projectName": "Accello",
+        "environment": "dev",
+        "nexusConfig": {
+            "host": "http://era",
+            "port": "80",
+            "context": "/ms-nexus",
+            "username": "admin",
+            "password": "1314246"
+        },
+        "dockerComposeDeployments": [
+            {
+                "title": "Authentication Server",
+                "key" : "eurekaserver",
+                "fileName": "test1.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "eurekaserver:v1",
+                "environment": "PORT=8761",
+                "configs": [
+                    {
+                        "key": "PORT",
+                        "value": "8080"
+                    }
+                ]
+            },
+            {
+                "title": "Distributed Cache",
+                "fileName": "test2.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "employee-service:v1",
+                "environment": "DISCOVERY_URL=http://eurekaserver:8761"
+            },
+            {
+                "title": "Reverse Proxy",
+                "fileName": "test3.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "eurekaserver:v1",
+                "environment": "PORT=8761"
+            },
+            {
+                "title": "Configuration Server",
+                "fileName": "test4.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "spring-config-server:v1",
+                "environment": "GIT_REPO_URL=https://github.com/sahirug/properties-repo.git"
+            },
+            {
+                "title": "Api Gateway",
+                "fileName": "test5.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "eurekaserver:v1",
+                "environment": "DISCOVERY_URL=http://eurekaserver:8761"
+            },
+            {
+                "title": "Build Server",
+                "fileName": "test6.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "eurekaserver:v1",
+                "environment": "PORT=8761"
+            },
+            {
+                "title": "Network Monitoring",
+                "fileName": "test7.tar",
+                "downloadPath": "/repository/ms-docker/service-discovery/eurekaserver/test.tar",
+                "port": "8080",
+                "host": "localhost",
+                "image": "eurekaserver:v1",
+                "environment": "PORT=8761"
+            }
+        ],
+        "gcpDeployments": [],
+        "customDeployments": [
+            {}
+        ]
+    }

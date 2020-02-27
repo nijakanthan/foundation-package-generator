@@ -1,0 +1,33 @@
+{
+  "name": "generator-msa",
+  "version": "1.0.0",
+  "description": "microservice generator",
+  "files": [
+    "generators"
+  ],
+  "main": "generators/Docker/index.js",
+  "dependencies": {
+    "archiver": "^3.1.1",
+    "axios": "^0.19.1",
+    "js-yaml": "^3.13.1",
+    "json2yaml": "^1.1.0",
+    "superagent": "^5.2.1",
+    "valid-url": "^1.0.9",
+    "yeoman-generator": "^4.4.0",
+    "zip-a-folder": "0.0.10",
+    "zip-folder": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nijakanthan/foundation-package-generator.git"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "nijakanthan@gmail.com",
+  "license": "ISC"
+}
